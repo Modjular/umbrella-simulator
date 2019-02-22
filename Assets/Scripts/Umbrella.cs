@@ -5,7 +5,7 @@ using UnityEngine;
 public class Umbrella : MonoBehaviour
 {
     public Renderer rend;
-    public AudioSource audio;
+    public AudioSource audio_source;
     public float max_rot = 270f;
     public Color max_color = new Color(255,70,70);
     public Color min_color = new Color(255,70,255);
@@ -16,7 +16,7 @@ public class Umbrella : MonoBehaviour
         rend = transform.Find("Hood").GetComponent<MeshRenderer>();
         rend.material.color = max_color;
 
-        audio = transform.Find("Hood").GetComponent<AudioSource>();
+        audio_source = transform.Find("Hood").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,6 +30,6 @@ public class Umbrella : MonoBehaviour
 
         rend.material.color = Color.Lerp(min_color, max_color, t);
         //Debug.Log("NORMED = " + normed + " --- t = " + t);
-        audio.volume = 1 - t;
+        audio_source.volume = 1 - t;
     }
 }
